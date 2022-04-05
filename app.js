@@ -12,11 +12,16 @@ form.addEventListener("submit", async (e) => {
 });
 
 const makeImg = (shows) => {
+  const display = document.querySelector("#display");
+  display.innerHTML = "";
   for (let result of shows) {
     if (result.show.image) {
+      const imgContainer = document.createElement("div");
+      imgContainer.classList.add("imgContainer");
       const img = document.createElement("img");
       img.src = result.show.image.medium;
-      document.body.append(img);
+      imgContainer.append(img);
+      display.append(imgContainer);
     }
   }
 };
